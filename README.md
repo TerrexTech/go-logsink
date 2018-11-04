@@ -1,4 +1,4 @@
-Go-LinkSink
+Go-LogSink
 ---
 
 This service collects logs from various services and simply writes them to stdout.
