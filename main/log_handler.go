@@ -26,6 +26,7 @@ func (m *logHandler) ConsumeClaim(
 	session sarama.ConsumerGroupSession,
 	claim sarama.ConsumerGroupClaim,
 ) error {
+	log.Println("LogHandler listening for log-messages...")
 	for msg := range claim.Messages() {
 		session.MarkMessage(msg, "")
 
