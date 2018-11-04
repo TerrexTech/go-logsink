@@ -22,7 +22,7 @@
   name = "github.com/TerrexTech/go-eventstore-models"
   packages = ["model"]
   pruneopts = "UT"
-  revision = "a02d0661c750ab35a8b78a87a3cd9f44161bb2bf"
+  revision = "4d0913b6357bca72d45064058f63c02d20c9e2c0"
   version = "v4.0.0"
 
 [[projects]]
@@ -294,6 +294,7 @@
     "github.com/TerrexTech/go-commonutils/commonutil",
     "github.com/TerrexTech/go-eventstore-models/model",
     "github.com/TerrexTech/go-kafkautils/kafka",
+    "github.com/TerrexTech/uuuid",
     "github.com/joho/godotenv",
     "github.com/onsi/ginkgo",
     "github.com/onsi/gomega",
