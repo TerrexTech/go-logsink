@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"log"
+	"strings"
 
 	"github.com/Shopify/sarama"
 	"github.com/TerrexTech/go-eventstore-models/model"
@@ -35,6 +36,8 @@ func (m *logHandler) ConsumeClaim(
 		if err != nil {
 			err = errors.Wrap(err, "LogConsumer Error: Error unmarshalling log")
 		}
+		l.Level = strings.ToUpper(l.Level)
+		l.ServiceName = "--> " + strings.ToUpper(l.ServiceName)
 
 		log.Printf(
 			"%s: %d: %s: %s: %s: %s",
