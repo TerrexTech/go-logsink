@@ -94,6 +94,12 @@ var _ = Describe("LogSink", func() {
 	})
 
 	It("should consume logs", func(done Done) {
+		go func() {
+			for err := range consumer.Errors() {
+				Expect(err).ToNot(HaveOccurred())
+			}
+		}()
+
 		uuid, err := uuuid.NewV4()
 		Expect(err).ToNot(HaveOccurred())
 		testMsg := uuid.String()

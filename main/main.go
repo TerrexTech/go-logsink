@@ -53,11 +53,17 @@ func main() {
 	if err != nil {
 		err = errors.Wrap(err, "Error creating log-consumer")
 		log.Fatalln(err)
+	}
 
-		err := initConsumer(consumer, &logHandler{})
-		if err != nil {
+	go func() {
+		for err := range consumer.Errors() {
+			err = errors.Wrap(err, "Error in Log-Consumer")
 			log.Fatalln(err)
 		}
+	}()
+	err = initConsumer(consumer, &logHandler{})
+	if err != nil {
+		log.Fatalln(err)
 	}
 }
 
