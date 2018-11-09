@@ -24,7 +24,7 @@ func loadAndValidateEnv() error {
 
 	missingVar, err := commonutil.ValidateEnv(
 		"KAFKA_BROKERS",
-		"KAFKA_LOG_CONSUMER_GROP",
+		"KAFKA_LOG_CONSUMER_GROUP",
 		"KAFKA_LOG_CONSUMER_TOPIC",
 	)
 	if err != nil {
@@ -42,7 +42,7 @@ func main() {
 	}
 
 	kafkaBrokers := os.Getenv("KAFKA_BROKERS")
-	cGroup := os.Getenv("KAFKA_LOG_CONSUMER_GROP")
+	cGroup := os.Getenv("KAFKA_LOG_CONSUMER_GROUP")
 	cTopic := os.Getenv("KAFKA_LOG_CONSUMER_TOPIC")
 
 	consumer, err := kafka.NewConsumer(&kafka.ConsumerConfig{

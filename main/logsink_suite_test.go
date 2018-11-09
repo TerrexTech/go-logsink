@@ -70,7 +70,7 @@ var _ = Describe("LogSink", func() {
 
 	BeforeSuite(func() {
 		kafkaBrokers := os.Getenv("KAFKA_BROKERS")
-		cGroup := os.Getenv("KAFKA_LOG_CONSUMER_GROP")
+		cGroup := os.Getenv("KAFKA_LOG_CONSUMER_GROUP")
 		topic = os.Getenv("KAFKA_LOG_CONSUMER_TOPIC")
 
 		var err error
