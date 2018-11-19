@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	"github.com/Shopify/sarama"
-	"github.com/TerrexTech/go-eventstore-models/model"
+	"github.com/TerrexTech/go-common-models/model"
 	"github.com/pkg/errors"
 )
 
@@ -40,12 +40,11 @@ func (m *logHandler) ConsumeClaim(
 		l.ServiceName = "--> " + strings.ToUpper(l.ServiceName)
 
 		log.Printf(
-			"%s: %d: %s: %s: %s: %s",
+			"%s: %d: %s: %s: %s",
 			l.Level,
 			l.ErrorCode,
 			l.ServiceName,
-			l.EventAction,
-			l.ServiceAction,
+			l.Action,
 			l.Description,
 		)
 	}
